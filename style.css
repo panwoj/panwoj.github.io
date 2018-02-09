@@ -35,6 +35,7 @@ body {
 @media (min-width: 768px) {
   .container {
     width: 750px; } }
+<<<<<<< HEAD
 
 @media (min-width: 992px) {
   .container {
@@ -44,6 +45,14 @@ body {
   .container {
     width: 1170px; } }
 
+=======
+@media (min-width: 992px) {
+  .container {
+    width: 970px; } }
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px; } }
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
 .kodilla-heading--main {
   margin: 20px auto;
   text-align: center;
@@ -59,11 +68,14 @@ body {
   border-bottom: none;
   margin: 0; }
 
+<<<<<<< HEAD
 .datatable__row-section-wrapper {
   display: flex;
   flex-grow: 1;
   justify-content: space-around; }
 
+=======
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
 .datatable__row:first-of-type {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px; }
@@ -90,8 +102,12 @@ body {
 .datatable__row--editing .datatable__button {
   display: none; }
 
+<<<<<<< HEAD
 .datatable__row--editing .datatable__button--editing,
 .datatable__row--editing .datatable__button--card-creation {
+=======
+.datatable__row--editing .datatable__button--editing {
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
   display: block; }
 
 .datatable__row--add input,
@@ -108,8 +124,12 @@ body {
   padding: 10px;
   flex-grow: 1; }
 
+<<<<<<< HEAD
 .datatable__row-section--button-section,
 .datatable__row-section--trello-section {
+=======
+.datatable__row-section--button-section {
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
   margin-left: auto;
   align-self: center;
   flex-shrink: 1;
@@ -144,10 +164,13 @@ body {
   line-height: 1.25;
   border-radius: 4px; }
 
+<<<<<<< HEAD
 .datatable__select {
   display: block;
   margin-bottom: 10px; }
 
+=======
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
 .datatable__tasks-container:empty {
   position: relative; }
 
@@ -155,4 +178,9 @@ body {
   content: 'Currently, there are no tasks available.'; }
 
 .template {
+<<<<<<< HEAD
   display: none; }
+=======
+  display: none;
+}
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc

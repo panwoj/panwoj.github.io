@@ -1,4 +1,5 @@
 $(document).ready(function() {
+<<<<<<< HEAD
   const apiRoot = 'https://stark-garden-20723.herokuapp.com/v1/task/';
   const trelloApiRoot = 'https://stark-garden-20723.herokuapp.com/v1/trello/';
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
@@ -24,6 +25,18 @@ $(document).ready(function() {
 
   function createElement(data) {
     const element = $(datatableRowTemplate).clone();
+=======
+
+  var apiRoot = 'https://stark-garden-20723.herokuapp.com/v1/task/';
+  var datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
+  var tasksContainer = $('[data-tasks-container]');
+
+  // init
+  getAllTasks();
+
+  function createElement(data) {
+    var element = $(datatableRowTemplate).clone();
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
 
     element.attr('data-task-id', data.id);
     element.find('[data-task-name-section] [data-task-name-paragraph]').text(data.title);
@@ -35,6 +48,7 @@ $(document).ready(function() {
     return element;
   }
 
+<<<<<<< HEAD
   function prepareBoardOrListSelectOptions(availableChoices) {
     return availableChoices.map(function(choice) {
       return $('<option>')
@@ -59,15 +73,26 @@ $(document).ready(function() {
 
       $datatableRowEl
         .appendTo($tasksContainer);
+=======
+  function handleDatatableRender(data) {
+    tasksContainer.empty();
+    data.forEach(function(task) {
+      createElement(task).appendTo(tasksContainer);
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
     });
   }
 
   function getAllTasks() {
+<<<<<<< HEAD
     const requestUrl = apiRoot + 'getTasks';
+=======
+    var requestUrl = apiRoot + 'getTasks';
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
 
     $.ajax({
       url: requestUrl,
       method: 'GET',
+<<<<<<< HEAD
       contentType: "application/json",
       success: function(tasks) {
         tasks.forEach(task => {
@@ -76,11 +101,18 @@ $(document).ready(function() {
 
         getAllAvailableBoards(handleDatatableRender, tasks);
       }
+=======
+      success: handleDatatableRender
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
     });
   }
 
   function handleTaskUpdateRequest() {
+<<<<<<< HEAD
     var parentEl = $(this).parents('[data-task-id]');
+=======
+    var parentEl = $(this).parent().parent();
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
     var taskId = parentEl.attr('data-task-id');
     var taskTitle = parentEl.find('[data-task-name-input]').val();
     var taskContent = parentEl.find('[data-task-content-input]').val();
@@ -106,7 +138,11 @@ $(document).ready(function() {
   }
 
   function handleTaskDeleteRequest() {
+<<<<<<< HEAD
     var parentEl = $(this).parents('[data-task-id]');
+=======
+    var parentEl = $(this).parent().parent();
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
     var taskId = parentEl.attr('data-task-id');
     var requestUrl = apiRoot + 'deleteTask';
 
@@ -139,12 +175,24 @@ $(document).ready(function() {
         title: taskTitle,
         content: taskContent
       }),
+<<<<<<< HEAD
       success: getAllTasks
+=======
+      complete: function(data) {
+        if(data.status === 200) {
+          getAllTasks();
+        }
+      }
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
     });
   }
 
   function toggleEditingState() {
+<<<<<<< HEAD
     var parentEl = $(this).parents('[data-task-id]');
+=======
+    var parentEl = $(this).parent().parent();
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
     parentEl.toggleClass('datatable__row--editing');
 
     var taskTitle = parentEl.find('[data-task-name-paragraph]').text();
@@ -154,6 +202,7 @@ $(document).ready(function() {
     parentEl.find('[data-task-content-input]').val(taskContent);
   }
 
+<<<<<<< HEAD
   function handleBoardNameSelect(event) {
     var $changedSelectEl = $(event.target);
     var selectedBoardId = $changedSelectEl.val();
@@ -202,3 +251,12 @@ $(document).ready(function() {
   $tasksContainer.on('click','[data-task-submit-update-button]', handleTaskUpdateRequest);
   $tasksContainer.on('click','[data-task-delete-button]', handleTaskDeleteRequest);
 });
+=======
+  $('[data-task-add-form]').on('submit', handleTaskSubmitRequest);
+
+  tasksContainer.on('click','[data-task-edit-button]', toggleEditingState);
+  tasksContainer.on('click','[data-task-edit-abort-button]', toggleEditingState);
+  tasksContainer.on('click','[data-task-submit-update-button]', handleTaskUpdateRequest);
+  tasksContainer.on('click','[data-task-delete-button]', handleTaskDeleteRequest);
+});
+>>>>>>> 6a2c83de4fff9d057941faa98ab76583730d34fc
