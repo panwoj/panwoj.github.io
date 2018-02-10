@@ -138,9 +138,8 @@ $(document).ready(function() {
       data: JSON.stringify({
         title: taskTitle,
         content: taskContent
-      }),
-      success: getAllTasks
-    });
+      })
+      }, getAllTasks());
   }
 
   function toggleEditingState() {
